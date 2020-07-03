@@ -8,22 +8,26 @@ package ca.sheridancollege.project;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import ca.sheridancollege.project.Card.SUIT;
+
 /**
  * A concrete class that represents any grouping of cards for a Game.
  * HINT, you might want to subclass this more than once.
  * The group of cards has a maximum size attribute which is flexible for reuse.
  * @author dancye
+ * @modifier - Meetkumar Rachhadia
+ * date modified - 28th June 2020
  */
 public class GroupOfCards 
 {
    
     //The group of cards, stored in an ArrayList
-    private ArrayList <Card> cards;
+    private ArrayList<Card> cards = new ArrayList<Card>();
     private int size;//the size of the grouping
     
     public GroupOfCards(int givenSize)
     {
-        size = givenSize;
+        this.size = givenSize;
     }
     
     /**
@@ -37,6 +41,18 @@ public class GroupOfCards
     
     public void shuffle()
     {
+        for(int i=0; i<4; i++){
+            SUIT tempSuit = SUIT.values()[i];
+            for(int j=0; j<13; j++){
+                Card obj = new Card();
+                obj.setNumber(j+1);
+                obj.setSuit(tempSuit);
+//                System.out.println(obj.toString());
+                this.cards.add(obj);
+            }
+        }
+//        Card obj2 = new Card();
+//        this.cards.add(obj2);
         Collections.shuffle(cards);
     }
 
