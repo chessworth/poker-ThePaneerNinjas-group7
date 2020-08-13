@@ -11,15 +11,11 @@ import java.util.ArrayList;
  *
  * @author meetr
  */
-public class CardTester {
+public class MainTester {
     public static void main(String args[]){
         
-        GroupOfCards obj = new GroupOfCards(52);
-        obj.shuffle();
+        Game gameObj = new Game("Poker");
+        gameObj.setPlayers();
         
-        ArrayList<Card> cards = obj.showCards();
-        for(Card card: cards){
-            System.out.println(card.toString());
-        }
     }
 }

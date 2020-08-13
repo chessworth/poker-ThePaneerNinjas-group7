@@ -10,40 +10,93 @@ package ca.sheridancollege.project;
  * @author dancye, 2018
  * @modifier Meetkumar Rachhadia, 2020
  */
-public abstract class Player 
+public class Player 
 {
-    private String playerID; //the unique ID for this player
+//    HIGHCARD=1,
+//    ONEPAIR=2,
+//    TWOPAIR=3,
+//    THREEOFAKIND=4,
+//    STRAIGHT=5,
+//    FLUSH=6,
+//    FULLHOUSE=7,
+//    FOUROFAKIND=8,
+//    STRAIGHTFLUSH=9,
+//    ROYALFLUSH=10
+
+    
+    private int playerID; //the unique ID for this player
+    private String playerName;
+    private double playerMoney;
+    private boolean playerActive;
+    private boolean turnTaken;
+    private int highestHand;
     
     /**
-     * A constructor that allows you to set the player's unique ID
-     * @param name the unique ID to assign to this player.
+     * A constructor that allows you to set the player's name
+     * @param playerName the name to assign to this player.
      */
-    public Player(String name)
+    public Player(String playerName)
     {
-        playerID= name;
+        this.playerName = playerName;
+        this.playerActive = true;
+    }
+    
+    /**
+     * @return the playerName
+     */
+    public String getPlayerName(){
+        return this.playerName;
     }
     
     /**
      * @return the playerID
      */
-    public String getPlayerID() 
+    public int getPlayerID() 
     {
-        return playerID;
+        return this.playerID;
     }
 
     /**
      * Ensure that the playerID is unique
-     * @param givenID the playerID to set
+     * @param playerID the playerID to set
      */
-    public void setPlayerID(String givenID) 
+    public void setPlayerID(int playerID) 
     {
-        playerID = givenID;
+        this.playerID = playerID;
     }
     
-    /**
-     * The method to be instantiated when you subclass the Player class
-     * with your specific type of Player and filled in with logic to play your game.
-     */
-    public abstract void play();
+    public double getPlayerMoney(){
+        return this.playerMoney;
+    }
+    
+    public void setPlayerMoney(double playerMoney){
+        this.playerMoney = playerMoney;
+    }
+    
+    public boolean getPlayerActive()
+    {
+        return this.playerActive;
+    }
+    
+    public void setPlayerActive(boolean playerActive)
+    {
+        this.playerActive = playerActive;
+    }
+    
+    public boolean getPlayerTurnTaken(){
+        return turnTaken;
+    }
+    
+    public void setPlayerTurnTaken(boolean turn){
+        turnTaken = turn;
+    }
+    
+    public int getHighestHand(){
+        return highestHand;
+    }
+    
+    public void setHighestHand(int highHand){
+        highestHand = highHand;
+    }
     
 }
